@@ -6,5 +6,67 @@
 </head>
 <body>
 <p><strong>a:</strong> <span th:text="${result.list[1]}"></span></p>
+ax+b
+<table border="1">
+    <tbody>
+    <tr th:each="i : ${Func1}">
+        <td th:each="j : ${i}">
+            <span th:text="${j}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
+ax^b
+<table border="1">
+    <tbody>
+    <tr th:each="i : ${Func2}">
+        <td th:each="j : ${i}">
+            <span th:text="${j}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
+ae^(bx)
+<table border="1">
+    <tbody>
+    <tr th:each="i : ${Func3}">
+        <td th:each="j : ${i}">
+            <span th:text="${j}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
+aln(x)+b
+<table border="1">
+    <tbody>
+    <tr th:each="i : ${Func4}">
+        <td th:each="j : ${i}">
+            <span th:text="${j}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
+ax^2+bx+c
+<table border="1">
+    <tbody>
+    <tr th:each="i : ${Func5}">
+        <td th:each="j : ${i}">
+            <span th:text="${j}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
+Наиболее подходящая функция: <span th:text="${BestFunc[0]}"></span>
+<p></p>
+Её среднеквадратичное отклонение: <span th:text="${BestFunc[1]}"></span>
+<div class="Chart">
+    <img src="/chart" width="1000" th:src="@{/chart}"/>
+</div>
+
 </body>
 </html>

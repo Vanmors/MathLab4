@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Getter
 @Setter
 public class Form {
-    private ArrayList<Integer> list;
+    private ArrayList<Double> list;
 //    String[][] twoDimentionArray;
     private int a;
 }

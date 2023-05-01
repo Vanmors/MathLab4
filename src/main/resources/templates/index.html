@@ -9,25 +9,30 @@
 
     <!--    <select name="foo">-->
     <!--        <option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}" th:text="'No.' + ${i}">Num</option>-->
-<!--                <input th:each = "j: ${#numbers.sequence(1, 10)}"type="number" th:field ="*{a}"/>-->
-    <input th:each = "j: ${#numbers.sequence(1, 10)}"type="number" th:field ="*{list}"/>
+    <!--                <input th:each = "j: ${#numbers.sequence(1, 10)}"type="number" th:field ="*{a}"/>-->
+    Введите значения x и y:
+    <div th:each="j: ${#numbers.sequence(1, 16)}">
+        <input type="number" th:field="*{list}" step="any"/>
+        <p/>
+    </div>
+    <p/>
     <input type="submit" value="Submit"/>
-<!--        <input type="text" th:field="*{list[__${0}__]}" />-->
+    <!--        <input type="text" th:field="*{list[__${0}__]}" />-->
     <!--    </select>-->
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th> Title</th>-->
-<!--            <th> Author</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:each="itemStat : *{list}">-->
-<!--            <td><input type="number" th:field="*{list[__${itemStat.index}__]}" /></td>-->
-<!--            <td><input type="number" th:field="*{list[__${itemStat.index}__]}" /></td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
+    <!--    <table>-->
+    <!--        <thead>-->
+    <!--        <tr>-->
+    <!--            <th> Title</th>-->
+    <!--            <th> Author</th>-->
+    <!--        </tr>-->
+    <!--        </thead>-->
+    <!--        <tbody>-->
+    <!--        <tr th:each="itemStat : *{list}">-->
+    <!--            <td><input type="number" th:field="*{list[__${itemStat.index}__]}" /></td>-->
+    <!--            <td><input type="number" th:field="*{list[__${itemStat.index}__]}" /></td>-->
+    <!--        </tr>-->
+    <!--        </tbody>-->
+    <!--    </table>-->
 </form>
 </body>
 </html>
