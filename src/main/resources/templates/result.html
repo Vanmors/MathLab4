@@ -5,7 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<p><strong>a:</strong> <span th:text="${result.list[1]}"></span></p>
+<!--<p><strong>a:</strong> <span th:text="${result.list[1]}"></span></p>-->
+
+<span th:if="${not #lists.isEmpty(Func1) and not #lists.isEmpty(Func2) and not #lists.isEmpty(Func3) and
+not #lists.isEmpty(Func4) and not #lists.isEmpty(Func5) and not #lists.isEmpty(Func6) and not #lists.isEmpty(BestFunc)}">
 ax+b
 <table border="1">
     <tbody>
@@ -61,12 +64,27 @@ ax^2+bx+c
     </tbody>
 </table>
 <p></p>
+ax^3+bx^2+cx+d
+<table border="1">
+    <tbody>
+    <tr th:each="i : ${Func6}">
+        <td th:each="j : ${i}">
+            <span th:text="${j}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p></p>
 Наиболее подходящая функция: <span th:text="${BestFunc[0]}"></span>
 <p></p>
 Её среднеквадратичное отклонение: <span th:text="${BestFunc[1]}"></span>
 <div class="Chart">
     <img src="/chart" width="1000" th:src="@{/chart}"/>
 </div>
-
+</span>
+<span th:unless="${not #lists.isEmpty(Func1) and not #lists.isEmpty(Func2) and not #lists.isEmpty(Func3) and
+not #lists.isEmpty(Func4) and not #lists.isEmpty(Func5) and not #lists.isEmpty(Func6) and not #lists.isEmpty(BestFunc)}">
+    Неверно введены данные!
+</span>
 </body>
 </html>

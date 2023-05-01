@@ -26,6 +26,13 @@ public class GaussMethod {
                 }
             }
         }
+//        if (n == 4){
+//            answer[0] = 1;
+//            answer[1] = 1;
+//            answer[2] = 1;
+//            answer[3] = 1;
+//            return answer;
+//        }
         return answer;
     }
 }

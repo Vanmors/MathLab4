@@ -23,7 +23,7 @@ public class Function {
         return y;
     }
 
-    public double f(double x, double a, double b, double c, int functionNumber) {
+    public double f(double x, double a, double b, double c, double d, int functionNumber) {
         switch (functionNumber) {
             case (1) -> {
                 return a * x + b;
@@ -40,8 +40,11 @@ public class Function {
                 else
                     return b;
             }
-            default -> {
+            case (5) -> {
                 return a * Math.pow(x, 2) + b * x + c;
+            }
+            default -> {
+                return a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
             }
         }
     }
@@ -90,16 +93,18 @@ public class Function {
     }
 
 
-    public double[] getQ(double[][] Func1, double[][] Func2, double[][] Func3, double[][] Func4, double[][] Func5) {
-        double[] q = new double[5];
+    public double[] getQ(double[][] Func1, double[][] Func2, double[][] Func3,
+                         double[][] Func4, double[][] Func5, double[][] Func6) {
+        double[] q = new double[6];
         double[] res = new double[2];
 
         for (int i = 0; i < Func1.length; i++) {
             q[0] += Math.pow(Func1[2][i] - Func1[1][i], 2);
-            q[1] += Math.pow(Func1[2][i] - Func1[1][i], 2);
-            q[2] += Math.pow(Func1[2][i] - Func1[1][i], 2);
-            q[3] += Math.pow(Func1[2][i] - Func1[1][i], 2);
-            q[4] += Math.pow(Func1[2][i] - Func1[1][i], 2);
+            q[1] += Math.pow(Func2[2][i] - Func2[1][i], 2);
+            q[2] += Math.pow(Func3[2][i] - Func3[1][i], 2);
+            q[3] += Math.pow(Func4[2][i] - Func4[1][i], 2);
+            q[4] += Math.pow(Func5[2][i] - Func5[1][i], 2);
+            q[5] += Math.pow(Func6[2][i] - Func6[1][i], 2);
         }
 
         q[0] = Math.sqrt(q[0] / Func1.length);
@@ -107,6 +112,7 @@ public class Function {
         q[2] = Math.sqrt(q[2] / Func1.length);
         q[3] = Math.sqrt(q[3] / Func1.length);
         q[4] = Math.sqrt(q[4] / Func1.length);
+        q[5] = Math.sqrt(q[5] / Func1.length);
 
         double minValue = q[0];
         double numberOfFunc = 1;
@@ -120,5 +126,36 @@ public class Function {
         res[1] = minValue;
 
         return res;
+    }
+
+    public boolean checkMinus(double[] x, double[] y) {
+        for (int i = 0; i < x.length; i++) {
+            if (x[i] < 0 || y[i] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkNan(double[][] result) {
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[0].length; j++) {
+                if (Double.isNaN(result[i][j]) || Double.isInfinite(result[i][j])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean checkDuplicates(double[] x) {
+        for (int i = 0; i < x.length - 1; i++) {
+            for (int j = i + 1; j < x.length; j++) {
+                if (x[i] == x[j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
